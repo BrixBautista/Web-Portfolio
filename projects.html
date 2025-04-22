@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects - Brix Bautista</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gradient-bg {
+      background: linear-gradient(45deg, #0a0a0a, #32CD32);
+      filter: blur(5px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding-top: 3rem; /* Reduced top padding even more */
+      text-align: center;
+    }
+
+    nav {
+      z-index: 10;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 12px;
+      padding: 24px;
+      background-color: #1f2937;
+      border: 2px solid #333;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px 2px rgba(50, 205, 50, 0.5); /* Green glow shadow */
+    }
+
+    .project-card h3 {
+      color: #32CD32;
+    }
+
+    .project-card p {
+      color: #cbd5e1;
+    }
+
+    /* Home link button style */
+    .home-link {
+      background-color: #32CD32; /* Green background */
+      color: white;
+      padding: 12px 24px; /* Increased padding */
+      font-size: 18px; /* Larger text size */
+      border-radius: 8px; /* Rounded corners */
+      font-weight: bold;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    }
+
+    .home-link:hover {
+      background-color: #28a745; /* Darker green on hover */
+      transform: scale(1.1); /* Slight scale up on hover */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link:hover::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #32CD32;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link::after {
+      width: 0;
+    }
+
+    /* Navbar with exact same background as page */
+    nav {
+      background-color: #0d1117; /* Set navbar to match the body background color */
+      box-shadow: none; /* No shadow */
+    }
+
+    /* Style for "Built with:" tech stack to be fully green */
+    .tech-stack {
+      color: #32CD32; /* Full green text for tech stack */
+    }
+  </style>
+</head>
+
+<body class="text-white bg-[#0d1117] font-sans">
+
+  <!-- Background Gradient -->
+  <div class="gradient-bg"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="w-full flex justify-between items-center p-2 z-10"> <!-- Reduced padding on navbar even more -->
+    <div class="text-2xl font-bold text-green-400">Web Portfolio</div>
+    <ul class="flex space-x-8 text-lg">
+      <li><a href="index.html" class="nav-link home-link hover:text-white">Home</a></li>
+    </ul>
+  </nav>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section relative bg-[#111827]">
+    <h2 class="text-4xl font-bold text-green-400 mb-8">My Projects</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+
+      <!-- Calculator -->
+      <div class="project-card">
+        <h3 class="text-2xl font-bold mb-2">Calculator</h3>
+        <p class="text-lg mb-2">A functional calculator allowing users to perform basic arithmetic operations.</p>
+        <p class="text-sm">
+          <span class="tech-stack">Built with: Java</span>
+        </p>
+      </div>
+
+      <!-- Snake Game -->
+      <div class="project-card">
+        <h3 class="text-2xl font-bold mb-2">Snake Game</h3>
+        <p class="text-lg mb-2">A classic Snake game where players control a snake to eat food and avoid obstacles on the screen.</p>
+        <p class="text-sm">
+          <span class="tech-stack">Built with: Java</span>
+        </p>
+      </div>
+
+      <!-- POS System -->
+      <div class="project-card">
+        <h3 class="text-2xl font-bold mb-2">Point of Sale (POS)</h3>
+        <p class="text-lg mb-2">A simple Point of Sale system simulating the process of managing transactions in retail and convenience stores.</p>
+        <p class="text-sm">
+          <span class="tech-stack">Built with: Java</span>
+        </p>
+      </div>
+
+      <!-- Library Management System -->
+      <div class="project-card">
+        <h3 class="text-2xl font-bold mb-2">Library Management System</h3>
+        <p class="text-lg mb-2">A web-based Library Management System allowing users to access and borrow books online.</p>
+        <p class="text-sm">
+          <span class="tech-stack">Built with: PHP, HTML, CSS, Bootstrap, JavaScript</span>
+        </p>
+      </div>
+
+      <!-- Online Healthcare Clinic -->
+      <div class="project-card">
+        <h3 class="text-2xl font-bold mb-2">Online Healthcare Clinic</h3>
+        <p class="text-lg mb-2">A booking website enabling patients to schedule and pay for medical appointments online.</p>
+        <p class="text-sm">
+          <span class="tech-stack">Built with: Django</span>
+        </p>
+      </div>
+
+      <!-- Tic Tac Toe -->
+      <div class="project-card">
+        <h3 class="text-2xl font-bold mb-2">Tic Tac Toe Game</h3>
+        <p class="text-lg mb-2">A desktop Tic Tac Toe game allowing players to enjoy a simple two-player game on a graphical interface.</p>
+        <p class="text-sm">
+          <span class="tech-stack">Built with: Java</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-[#0d1117] text-sm">
+    <p>&copy; <span id="current-year"></span> All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>
