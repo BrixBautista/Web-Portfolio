@@ -87,7 +87,14 @@
   <!-- Navigation Bar -->
   <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-5 bg-[#0d1117] z-10">
     <div class="text-2xl font-bold text-green-400">Web Portfolio</div>
-    <ul class="flex space-x-8 text-lg">
+    <!-- Hamburger Icon -->
+    <button id="hamburger" class="block lg:hidden text-white focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <!-- Navigation Links -->
+    <ul id="nav-links" class="lg:flex space-x-8 text-lg hidden lg:block">
       <li><a href="#home" class="nav-link hover:text-green-500" id="nav-home">Home</a></li>
       <li><a href="#about" class="nav-link hover:text-green-500" id="nav-about">About</a></li>
       <li><a href="#tech-stack" class="nav-link hover:text-green-500" id="nav-tech-stack">Tech Stack</a></li>
@@ -117,7 +124,7 @@
       </div>
       <div class="mt-10 md:mt-0 md:ml-12 md:w-1/2">
         <div class="w-48 h-48 rounded-full bg-gray-300">
-          <img src="1x1.JPG" alt="Brix Bautista" class="w-full h-full object-cover rounded-full">
+          <img src="1x1.jpg" alt="Brix Bautista" class="w-full h-full object-cover rounded-full">
         </div>
       </div>
     </div>
@@ -177,8 +184,6 @@
     </div>
   </section>
   
-  
-
   <!-- Footer -->
   <footer class="text-center py-4 bg-[#0d1117] text-sm">
     <p>&copy; <span id="current-year"></span> All Rights Reserved</p>
@@ -188,14 +193,22 @@
   <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
 
+    // Hamburger toggle logic
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("hidden");
+    });
+
     const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinksList = document.querySelectorAll('.nav-link');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const navLink = document.querySelector(`#nav-${entry.target.id}`);
         if (entry.isIntersecting) {
-          navLinks.forEach(link => link.classList.remove('active'));
+          navLinksList.forEach(link => link.classList.remove('active'));
           if (navLink) navLink.classList.add('active');
         }
       });
